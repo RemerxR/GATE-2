@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://xnl57or1cja1"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_uugsc"]
+[ext_resource type="PackedScene" uid="uid://c1iwhmmr7cr63" path="res://bg.tscn" id="2_ygevs"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_uugsc")
+
+[node name="Новая Игра" type="Button" parent="."]
+offset_left = 393.0
+offset_top = 109.0
+offset_right = 732.0
+offset_bottom = 232.0
+theme_override_font_sizes/font_size = 50
+text = "Новая Игра"
+
+[node name="Выход" type="Button" parent="."]
+offset_left = 391.0
+offset_top = 335.0
+offset_right = 730.0
+offset_bottom = 458.0
+theme_override_font_sizes/font_size = 50
+text = "Выход"
+
+[node name="BG" parent="." instance=ExtResource("2_ygevs")]
+
+[connection signal="pressed" from="Новая Игра" to="." method="_on_новая_игра_pressed"]
+[connection signal="pressed" from="Выход" to="." method="_on_выход_pressed"]

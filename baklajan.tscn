@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://cs6jj2jnakw27"]
+
+[ext_resource type="Script" path="res://baklajan.gd" id="1_58xgo"]
+[ext_resource type="Texture2D" uid="uid://beg10fx2qawy1" path="res://oak_woods_v1.0/baklajan/baklajan stoit.png" id="2_y2prs"]
+[ext_resource type="Texture2D" uid="uid://cu2r8x3n2ok3c" path="res://oak_woods_v1.0/baklajan/Baklajan hodba1.png" id="3_nsuq8"]
+[ext_resource type="Texture2D" uid="uid://dys1ljtp65w6e" path="res://oak_woods_v1.0/baklajan/Baklajan hodba2.png" id="4_iri2h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ge0ap"]
+radius = 43.0465
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5321v"]
+atlas = ExtResource("2_y2prs")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4f6f"]
+atlas = ExtResource("3_nsuq8")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff74b"]
+atlas = ExtResource("4_iri2h")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ra5yx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5321v")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4f6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff74b")
+}],
+"loop": true,
+"name": &"run",
+"speed": 6.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_58xgo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ge0ap")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 10)
+scale = Vector2(2.79167, 2.79167)
+sprite_frames = SubResource("SpriteFrames_ra5yx")
+animation = &"run"
+autoplay = "idle"
+frame_progress = 0.434915
